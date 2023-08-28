@@ -46,31 +46,81 @@ def calculate_tdee(height, weight, activity_level, goal, age, units, gender):
     return tdee
 
 
-SCHEMA = """
-WorkoutPlan:\n
-  Day: Monday
-    Workout: Chest
-        Exercises:
-            - Bench Press
-            - Incline Bench Press
-            - Dumbbell Flys
-            - Cable Crossovers
-            - Pushups
-
-     
-    notes( Additional information, tips, or instructions related to the workout plan.)
-  
-DietPlan:
-  Day: Monday
-  meals:
-   Breakfast
-    Pancakes
-   Lunch
-   Chicken Curry
-    Dinner
-    - 1 cup of brown rice
-    - 1 cup of broccoli
-        
+EXAMPLE = """
+Sure, Deepak. As a vegan with a preference for Indian cuisine, focusing on Powerlifting and Yoga,
+and aiming for weight loss, here is a week-long plan for you.
+-
+Monday:
+*Workout* - Powerlifting
+- Squats: 4 sets of 5 reps
+- Bench Press: 4 sets of 5 reps
+- Deadlift: 3 sets of 5 reps
+*Meal Plan*
+- Breakfast: Vegan Upma (Protein - 13g, Carbs - 72g, Fat - 17g, Calories - 501)
+- Lunch: Rajma Masala with Brown Rice (Protein - 19g, Carbs - 90g, Fat - 6g, Calories - 545)
+- Dinner: Mixed Vegetable Curry with Millets (Protein - 9g, Carbs - 60g, Fat - 8g, Calories - 380)
+-
+Tuesday:
+*Workout* - Yoga
+- Surya Namaskar: 5 sets
+- Virabhadrasana II: 3 sets of 30 seconds hold each side
+- Balasana: 3 sets of 30 seconds hold
+*Meal Plan*
+- Breakfast: Vegan Paratha with Vegan Yogurt (Protein - 13g, Carbs - 60g, Fat - 12g, Calories - 450)
+- Lunch: Chole Masala with Brown Bread (Protein - 18g, Carbs - 70g, Fat - 9g, Calories - 485)
+- Dinner: Vegan Palak Paneer with Quinoa (Protein - 20g, Carbs - 40g, Fat - 10g, Calories - 370)
+-
+Wednesday:
+*Workout* - Powerlifting
+- Overhead Press: 4 sets of 5 reps
+- Barbell Rows: 4 sets of 5 reps
+- Pull-ups: 3 sets of max reps
+*Meal Plan*
+- Breakfast: Vegan Poha (Protein - 10g, Carbs - 60g, Fat - 15g, Calories - 435)
+- Lunch: Vegan Biryani with Raita (Protein - 15g, Carbs - 85g, Fat - 10g, Calories - 530)
+- Dinner: Vegan Dal Tadka with Millets (Protein - 18g, Carbs - 60g, Fat - 8g, Calories - 400)
+-
+Thursday:
+*Workout* - Yoga
+- Tadasana: 3 sets of 30 seconds hold
+- Trikonasana: 3 sets of 30 seconds hold each side
+- Savasana: 5 minutes
+*Meal Plan*
+- Breakfast: Vegan Idli with Sambar (Protein - 12g, Carbs - 60g, Fat - 10g, Calories - 420)
+- Lunch: Vegan Kadai Paneer with Brown Rice (Protein - 20g, Carbs - 80g, Fat - 12g, Calories - 540)
+- Dinner: Vegan Kofta with Quinoa (Protein - 18g, Carbs - 40g, Fat - 10g, Calories - 380)
+-
+Friday:
+*Workout* - Powerlifting
+- Squats: 4 sets of 5 reps
+- Bench Press: 4 sets of 5 reps
+- Deadlift: 3 sets of 5 reps
+*Meal Plan*
+- Breakfast: Vegan Dosa with Chutney (Protein - 10g, Carbs - 70g, Fat - 12g, Calories - 460)
+- Lunch: Vegan Aloo Gobi with Millets (Protein - 14g, Carbs - 85g, Fat - 10g, Calories - 520)
+- Dinner: Vegan Matar Paneer with Brown Rice (Protein - 20g, Carbs - 60g, Fat - 12g, Calories -
+480)
+-
+Saturday:
+*Workout* - Yoga
+- Prasarita Padottanasana: 3 sets of 30 seconds hold each side
+- Vrksasana: 3 sets of 30 seconds hold each side
+- Shavasana: 5 minutes
+*Meal Plan*
+- Breakfast: Vegan Uttapam with Sambar (Protein - 14g, Carbs - 70g, Fat - 12g, Calories - 480)
+- Lunch: Vegan Dal Makhani with Quinoa (Protein - 18g, Carbs - 70g, Fat - 10g, Calories - 500)
+- Dinner: Vegan Stuffed Capsicum with Brown Rice (Protein - 15g, Carbs - 60g, Fat - 10g, Calories -
+430)
+-
+Sunday:
+*Rest Day*
+*Meal Plan*
+- Breakfast: Vegan Oats with Fruits (Protein - 10g, Carbs - 70g, Fat - 10g, Calories - 440)
+- Lunch: Vegan Vegetable Pulao with Raita (Protein - 14g, Carbs - 75g, Fat - 12g, Calories - 500)
+- Dinner: Vegan Shahi Paneer with Millets (Protein - 20g, Carbs - 60g, Fat - 15g, Calories - 475)
+-
+Remember, consistency is key in achieving your fitness goals. As Vince Lombardi said, "It's not
+whether you get knocked down, it's whether you get up." Keep pushing, Deepak!
             
             
 """
@@ -90,7 +140,8 @@ def generate_plan(name, goal, diet, fridge_items, training_styles, tdee, age, cu
             My TDEE is {tdee} and I am {age} years old. My fitness goal is {goal} so try to give me accurate response based off my info. If i withheld dietary preference or training style, IGNORE IT and carry on with generic response. Do not give me any extra info, just respond as the trainers or mix of trainers and give the workout plan and the philosophy along with some things to research if need be and quotes from the trainers if there are any.
             Be extremely detailed and straight to the point
             
-            Give the output for {name} in a structured format for one week, with meals and workouts for each day.
+            Give the output for {name} in a structured format for one week, as use the {EXAMPLE} as a template.
+           
             """
 
         }
