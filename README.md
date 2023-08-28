@@ -1,6 +1,6 @@
-# 💪 GymPT: Personalized Fitness
+# 🏋🏻 FitAI: Personalized Fitness
 
-GymPT is your intelligent guide to personalized fitness, providing tailored workout plans, meal recommendations, and training philosophies based on individual goals and preferences.
+FitAI is your intelligent guide to personalized fitness, providing tailored workout plans, meal recommendations, and training philosophies based on individual goals and preferences.
 
 ## Features
 
@@ -32,7 +32,9 @@ cd GymPT
 pip install -r requirements.txt
 streamlit run app.py
 ```
+
 ## Contributing
+
 We welcome contributions from the fitness community. Feel free to submit issues, create pull requests, or reach out with suggestions.
 
 ## Inspirations
@@ -52,5 +54,3 @@ We welcome contributions from the fitness community. Feel free to submit issues,
         <td>
   </tr>
 </table>
-
-
