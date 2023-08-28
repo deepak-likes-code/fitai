@@ -37,11 +37,11 @@ goal = st.selectbox('Choose Your Fitness Goal', [
                     'Weight Loss', 'Muscle Gain', 'Maintenance'])
 
 # User Input for Dietary Preferences
-diet = st.multiselect('Select Dietary Preferences (Optional)', [
+diet = st.multiselect('Select Dietary Preferences (Optional) - You can select upto two', [
                       'Vegan', 'Keto', 'Low-Carb', 'High-Carb', 'Carb-Cycling', 'Gluten-Free'])
 
 cuisine = st.multiselect('Select Cuisine Preferences (Optional)', [
-    'Indian', 'Continental', 'Lebanese', 'Mediterranean', 'Chinese', 'Japanese'])
+    'Indian', 'Continental', 'Lebanese', 'Mediterranean', 'Chinese', 'Japanese'], max_selections=2)
 
 # Items in Fridge (for personalized diet recommendations)
 fridge_items = st.text_area('Items in Your Fridge (Optional, leave empty if you only want a workout regimen)',
@@ -87,7 +87,7 @@ training_styles = st.multiselect('Select Your Preferred Training Style - You can
 
 
 # Height and Weight Inputs
-units = st.selectbox('Choose Your Units', ['cm/kg', 'inches/lbs'])
+units = st.radio('Choose Your Units', ('cm/kg', 'inches/lbs'))
 
 if units == 'inches/lbs':
     height_description = 'Enter Your Height (e.g., 68 inches)'
@@ -124,7 +124,7 @@ if st.button('Generate Plan'):
         st.error(
             'Please fill in all required fields (Height, Weight, Age, and Activity Level) before generating the plan.')
     else:
-        with st.spinner('We\'re all gonna make it brah... Generating...'):
+        with st.spinner('We\'re all gonna make it bruh 🔥🔥🔥 ... Generating...'):
             # Calculate TDEE
             tdee = calculate_tdee(
                 height, weight, activity_levels[activity_level], goal, age, units, gender)
@@ -140,9 +140,9 @@ if st.button('Generate Plan'):
                     def text_to_pdf(plan):
                         pdf = FPDF()
                         pdf.add_page()
-                        pdf.set_font("Helvetica", size=12)
+                        pdf.set_font("Arial", size=12)
                         pdf.multi_cell(0, 10, txt=plan,
-                                       markdown=True)
+                                       )
 
                         # Save the pdf with name .pdf
                         file_name = "generated_plan.pdf"
